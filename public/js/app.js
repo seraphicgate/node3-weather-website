@@ -9,10 +9,12 @@ weatherForm.addEventListener('submit', (e) => {
     console.log('Searching for :' +location)
     messageOne.textContent = 'Loading..... Please wait'
     messageTwo.textContent = ''
-        
-    fetch('http://localhost:3000/weather?address='+location).then((response) => {
+    
+    // Before Heroku initialization
+    // fetch('http://localhost:3000/weather?address='+location).then((response) => {
         //console.log(response)
-        
+    // After Heroku Initialization
+        fetch('/weather?address='+location).then((response) => {
         response.json().then((data) => {
             if(data.error) {
              // return console.log('Error: ' + data.error)
