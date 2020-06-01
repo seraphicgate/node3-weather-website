@@ -11,7 +11,7 @@ const forecast = (longi, lati, callback) => {
         } else if (body.error) {
             callback('Unable to locate location: "' +a +' ' +b +'" please try again', undefined)
         } else {callback (undefined,'Weather Description is: '+ body.current.weather_descriptions[0] + '.' +'It is currently ' +body.current.temperature +' degree and there is a ' 
-        +body.current.precip + '% chance of raining in ' +body.location.country + '. Humidity is around ' +body.current.humidity
+        +body.current.precip*100 + '% chance of raining in ' +body.location.country + '. Humidity is around ' +body.current.humidity +'%.'
         )
         }
     })
